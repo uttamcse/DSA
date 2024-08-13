@@ -1,0 +1,44 @@
+import java.util.*;
+public class Main
+{
+    public static int binarysearch(int arr[],int val){
+        int left=0;
+        int right=arr.length-1;
+        
+        
+        while(left<=right)
+        {
+            int mid=left+(right-left)/2;
+            if(arr[mid]==val){
+                return mid;
+            }
+            else if(arr[mid]<val){
+                left=mid+1;
+            }
+            else{
+                right=mid-1;
+            }
+        }
+        return -1;
+        
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for (int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		}
+		int val=sc.nextInt();
+		int result=binarysearch(arr,val);
+		if(result!=-1)
+		{
+		    System.out.print(result+1);
+		}
+		else{
+		    System.out.print(-1);
+		}
+		
+	}
+}
